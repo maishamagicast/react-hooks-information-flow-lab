@@ -8,16 +8,22 @@ function App() {
   function onDarkModeClick() {
     setIsDarkMode((isDarkMode) => !isDarkMode);
   }
-
-  return (
-    <div className={"App " + (isDarkMode ? "dark" : "light")}>
+  function Header({ onClick }) {
+    return (
       <header>
         <h2>Shopster</h2>
-        <button onClick={onDarkModeClick}>
+        <button onClick={onClick}>
           {isDarkMode ? "Dark" : "Light"} Mode
         </button>
+        
       </header>
+    );
+  }
+  return (
+    <div className={"App " + (isDarkMode ? "dark" : "light")}>
+      <Header onClick={onDarkModeClick}/>
       <ShoppingList items={itemData} />
+      
     </div>
   );
 }
